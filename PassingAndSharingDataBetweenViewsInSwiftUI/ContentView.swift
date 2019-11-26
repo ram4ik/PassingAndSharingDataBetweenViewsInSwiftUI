@@ -9,8 +9,16 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var selected = 0
+    
     var body: some View {
-        Text("Hello World")
+        VStack {
+            TotalLikes()
+            TabView(selection: $selected) {
+                Facebook().tabItem { Text("Facebook") }.tag(1)
+                Twitter().tabItem { Text("Twitter") }.tag(2)
+            }
+        }
     }
 }
 
